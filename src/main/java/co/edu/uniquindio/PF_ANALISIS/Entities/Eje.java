@@ -23,7 +23,7 @@ public class Eje {
     @Column(name = "y", columnDefinition = "int default 0")
     private int y;
 
-    @Column(name="desceipcion, nullable=false, length=20")
+    @Column(name="descripcion", nullable=false, length=(20))
     private String descripcion;
 
     @OneToMany(mappedBy = "eje")
@@ -32,9 +32,10 @@ public class Eje {
     public Eje() {
     }
 
-    public Eje(int x, int y, String descripcion) {
+    public Eje(int x, int y, String descripcion, Integer idEje) {
         this.x = x;
         this.y = y;
         this.descripcion = descripcion;
+        this.idEje = idEje;
     }
 }

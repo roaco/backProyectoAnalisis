@@ -24,7 +24,7 @@ public class Encuesta {
     private Double puntaje;
 
     @OneToMany(mappedBy = "encuesta")
-    private List<Encuesta_Item> encuestaItems;
+    private List<EncuestaItem> encuestaItems;
 
     @OneToMany(mappedBy = "encuesta")
     private List<Estudiante> estudiantes;

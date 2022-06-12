@@ -21,7 +21,7 @@ public class Item {
     private String enunciado;
 
     @OneToMany(mappedBy = "item")
-    private List<Encuesta_Item> encuestaItems;
+    private List<EncuestaItem> encuestaItems;
 
     public Item() {
     }

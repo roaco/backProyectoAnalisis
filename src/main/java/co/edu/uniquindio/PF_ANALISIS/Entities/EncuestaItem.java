@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name="ENCUESTA_ITEM")
 @Getter
 @Setter
-public class Encuesta_Item {
+public class EncuestaItem {
     @Id
     @Column(name="id_encuesta_item")
         @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +24,10 @@ public class Encuesta_Item {
     @ManyToOne
     private Item item;
 
-    public Encuesta_Item() {
+    public EncuestaItem() {
     }
 
-    public Encuesta_Item(Calificacion calificacion, Encuesta encuesta, Item item) {
+    public EncuestaItem(Calificacion calificacion, Encuesta encuesta, Item item) {
         this.calificacion = calificacion;
         this.encuesta = encuesta;
         this.item = item;

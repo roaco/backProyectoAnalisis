@@ -21,7 +21,7 @@ public class Pregunta {
     private String descripcion;
 
     @OneToMany(mappedBy = "pregunta")
-    private List<Test_Pregunta> test_preguntas;
+    private List<TestPregunta> test_preguntas;
 
     @OneToMany(mappedBy = "pregunta")
     private List<PreguntaEje> preguntaEjes;

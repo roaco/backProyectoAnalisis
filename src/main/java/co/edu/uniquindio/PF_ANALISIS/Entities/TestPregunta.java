@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Table(name="TEST_PREGUNTA")
 @Getter
 @Setter
-public class Test_Pregunta {
+public class TestPregunta {
 
     @Id
     @Column(name = "id_test_pregunta")
@@ -25,10 +25,10 @@ public class Test_Pregunta {
     @ManyToOne
     private Pregunta pregunta;
 
-    public Test_Pregunta() {
+    public TestPregunta() {
     }
 
-    public Test_Pregunta(Test test, Respuesta respuesta, Pregunta pregunta) {
+    public TestPregunta(Test test, Respuesta respuesta, Pregunta pregunta) {
         this.test = test;
         this.respuesta = respuesta;
         this.pregunta = pregunta;

@@ -21,7 +21,7 @@ public class Calificacion {
     private Integer score;
 
     @OneToMany(mappedBy = "calificacion")
-    private List<Encuesta_Item> encuestaItems;
+    private List<EncuestaItem> encuestaItems;
 
     public Calificacion() {
     }
