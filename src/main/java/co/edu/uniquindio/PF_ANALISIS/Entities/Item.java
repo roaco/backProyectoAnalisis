@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "ITEM")
+@Table(name = "item")
 @Getter
 @Setter
 public class Item {
@@ -17,17 +16,7 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idItem;
 
-    @Column(name = "enunciado", nullable = false, length = 300)
+    @Column (name = "enunciado", nullable = false, length = 250)
     private String enunciado;
 
-    @OneToMany(mappedBy = "item")
-    private List<EncuestaItem> encuestaItems;
-
-    public Item() {
-    }
-
-    public Item(int idItem, String enunciado) {
-        this.enunciado = enunciado;
-        this.idItem = idItem;
-    }
 }

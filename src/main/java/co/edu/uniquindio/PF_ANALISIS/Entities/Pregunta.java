@@ -4,33 +4,23 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name = "PREGUNTA")
+@Table(name = "Pregunta")
 @Getter
 @Setter
 public class Pregunta {
-
     @Id
-    @Column(name = "id_pregunta")
+    @Column(name = "id_Pregunta")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idPregunta;
+    private int idPregunta;
 
-    @Column(name = "descripcion", nullable = false, length = 200)
-    private String descripcion;
+    @Column(name = "enunciado", nullable = false, length = 50)
+    private String enunciado;
 
-    @OneToMany(mappedBy = "pregunta")
-    private List<TestPregunta> test_preguntas;
+    @ManyToOne
+    private Punto puntoInicial;
 
-    @OneToMany(mappedBy = "pregunta")
-    private List<PreguntaEje> preguntaEjes;
-
-    public Pregunta() {
-    }
-
-    public Pregunta(int idPregunta, String descripcion) {
-        this.descripcion = descripcion;
-        this.idPregunta = idPregunta;
-    }
+    @ManyToOne
+    private Punto puntoFinal;
 }
