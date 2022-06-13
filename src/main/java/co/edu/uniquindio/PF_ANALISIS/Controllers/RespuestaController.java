@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("respuesta")
 public class RespuestaController {
 
@@ -45,6 +45,22 @@ public class RespuestaController {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(
                     respuestaService.getPreguntasTYF());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            JSONObject objetoJson = new JSONObject();
+            objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
+            objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
+            objetoJson.put("Mensaje", "No existen registros en la BD");
+            String jsonString = objetoJson.toString();
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
+        }
+    }
+
+    @GetMapping("/promedio")
+    public ResponseEntity<?> getPromedioPreguntas() {
+        try {
+            return ResponseEntity.status(HttpStatus.OK).body(
+                    respuestaService.getPromedioPreguntas());
         } catch (Exception e) {
             System.out.println(e.getMessage());
             JSONObject objetoJson = new JSONObject();

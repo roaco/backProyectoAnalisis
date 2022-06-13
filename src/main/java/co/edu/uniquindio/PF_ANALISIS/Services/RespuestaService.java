@@ -25,4 +25,9 @@ public class RespuestaService {
     public List<Object[]> getPreguntasTYF(){
         return respuestaRepo.getPreguntasTYF();
     }
+
+    @Transactional
+    public List<Object[]> getPromedioPreguntas(){
+        return respuestaRepo.getPromedioPreguntas();
+    }
 }

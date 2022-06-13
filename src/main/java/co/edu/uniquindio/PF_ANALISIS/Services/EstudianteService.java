@@ -27,4 +27,9 @@ public class EstudianteService {
         return estudianteRepo.getEstudiantesPuntaje();
     }
 
+    @Transactional
+    public List <Object[]> getResultadosTest(Integer id) {
+        return estudianteRepo.getResultadosTest(id);
+    }
+
 }

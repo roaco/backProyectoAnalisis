@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
 @RequestMapping("estudiante")
 public class EstudianteController {
 
@@ -20,7 +20,7 @@ public class EstudianteController {
     public ResponseEntity<?> createEstudiante(@RequestBody Estudiante estudiante){
         try {
             if(estudianteService.createEstudiante(estudiante)) {
-                return ResponseEntity.status(HttpStatus.CREATED).body(null);
+                return ResponseEntity.status(HttpStatus.CREATED).body("Status: 200 OK");
             }
             else {
                 JSONObject objetoJson = new JSONObject();
