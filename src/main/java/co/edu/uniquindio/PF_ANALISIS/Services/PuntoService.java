@@ -1,6 +1,5 @@
 package co.edu.uniquindio.PF_ANALISIS.Services;
 
-import co.edu.uniquindio.PF_ANALISIS.DTO.PuntoDTO;
 import co.edu.uniquindio.PF_ANALISIS.Repositories.PuntoRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
