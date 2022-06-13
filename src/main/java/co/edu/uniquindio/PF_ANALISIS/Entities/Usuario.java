@@ -6,23 +6,23 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "Estudiante")
+@Table (name = "Usuario")
 @Getter
 @Setter
-public class Estudiante {
+public class Usuario {
     @Id
-    @Column(name = "codigo")
-    private Integer codigo;
+    @Column(name = "cedula")
+    private Integer cedula;
     @Column(name = "nombre", nullable = false, length = 150)
     private String nombre;
     @Column(name = "email", nullable = false, length = 100, unique = true)
     private String email;
 
-    public Estudiante() {
+    public Usuario() {
     }
 
-    public Estudiante(Integer codigo, String nombre, String email) {
-        this.codigo = codigo;
+    public Usuario(Integer cedula, String nombre, String email) {
+        this.cedula = cedula;
         this.nombre = nombre;
         this.email = email;
     }
