@@ -5,17 +5,17 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "item")
+@Table(name = "ITEM")
 @Getter
 @Setter
-public class Item {
+public class PreguntaTest {
 
     @Id
     @Column(name = "id_item")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idItem;
+    private Integer idPreguntaTest;
 
     @Column (name = "enunciado", nullable = false, length = 250)
-    private String enunciado;
+    private String descripcion;
 
 }
