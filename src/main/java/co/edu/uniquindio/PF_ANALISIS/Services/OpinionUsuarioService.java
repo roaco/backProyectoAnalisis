@@ -1,7 +1,7 @@
 package co.edu.uniquindio.PF_ANALISIS.Services;
 
-import co.edu.uniquindio.PF_ANALISIS.Entities.Opinion;
-import co.edu.uniquindio.PF_ANALISIS.Repositories.OpinionRepo;
+import co.edu.uniquindio.PF_ANALISIS.Entities.OpinionUsuario;
+import co.edu.uniquindio.PF_ANALISIS.Repositories.OpinionUsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,16 +9,16 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class OpinionService {
+public class OpinionUsuarioService {
 
     @Autowired
-    private OpinionRepo opinionRepo;
+    private OpinionUsuarioRepo opinionUsuarioRepo;
 
     @Transactional
-    public boolean createOpinion(Opinion opinionTest) {
+    public boolean createOpinion(OpinionUsuario opinionUsuarioTest) {
 
         try {
-            opinionRepo.save(opinionTest);
+            opinionUsuarioRepo.save(opinionUsuarioTest);
             return true;
         } catch (Exception e) {
             return false;
@@ -27,6 +27,6 @@ public class OpinionService {
 
     @Transactional
     public List<Object[]> getPromedioOpinion(){
-        return opinionRepo.getPromedioOpinion();
+        return opinionUsuarioRepo.getPromedioOpinion();
     }
 }

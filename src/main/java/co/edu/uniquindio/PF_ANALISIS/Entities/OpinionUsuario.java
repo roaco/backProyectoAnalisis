@@ -5,10 +5,10 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "opinion")
+@Table(name = "OPINION")
 @Getter
 @Setter
-public class Opinion {
+public class OpinionUsuario {
 
     @Id
     @Column(name = "id_opinion")
@@ -16,20 +16,20 @@ public class Opinion {
     private Integer idOpinion;
 
     @Column (name = "id_item")
-    private int idItem;
+    private int idPreguntaTest;
 
-    @Column (name = "id_Estudiante")
-    private int idEstudiante;
+    @Column (name = "id_estudiante")
+    private int idUsuario;
 
     @Column (name = "valoracion", nullable = false)
     private int valoracion;
 
-    public Opinion() {
+    public OpinionUsuario() {
     }
 
-    public Opinion(int idItem, int idEstudiante, int valoracion) {
-        this.idItem = idItem;
-        this.idEstudiante = idEstudiante;
+    public OpinionUsuario(int idPreguntaTest, int idUsuario, int valoracion) {
+        this.idPreguntaTest = idPreguntaTest;
+        this.idUsuario = idUsuario;
         this.valoracion = valoracion;
     }
 }
