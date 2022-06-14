@@ -9,11 +9,12 @@ import java.util.List;
 
 @Repository
 public interface OpinionRepo extends JpaRepository<Opinion, Integer> {
+
     @Query(value = "select i.enunciado, avg(valoracion) Promedio_Global " +
             "from opinion o join item i " +
             "on i.id_item = o.id_item " +
             "group by i.enunciado " +
-            "order by 1", nativeQuery = true)
+            "order by 1 ", nativeQuery = true)
     List<Object[]> getPromedioOpinion();
 
 }

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.PF_ANALISIS.Controllers;
 
+
 import co.edu.uniquindio.PF_ANALISIS.Entities.Opinion;
 import co.edu.uniquindio.PF_ANALISIS.Services.OpinionService;
 import org.json.JSONObject;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*")
 @RequestMapping("opinion")
 public class OpinionController {
 
@@ -24,18 +25,17 @@ public class OpinionController {
             }
             else {
                 JSONObject objetoJson = new JSONObject();
-                objetoJson.put("Codigo error", HttpStatus.BAD_REQUEST.value());
-                objetoJson.put("Descripción error", HttpStatus.BAD_REQUEST);
-                objetoJson.put("Mensaje", "No es posible registrar la Opinion");
+                objetoJson.put("Codigo: ", HttpStatus.BAD_REQUEST.value());
+                objetoJson.put("Descripción: ", HttpStatus.BAD_REQUEST);
+                objetoJson.put("Mensaje: ", "No se puede registrar opinion");
                 String jsonString = objetoJson.toString();
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
             }
         }catch (Exception e) {
-            System.out.println(e.getMessage());
             JSONObject objetoJson = new JSONObject();
-            objetoJson.put("Codigo error", HttpStatus.BAD_REQUEST.value());
-            objetoJson.put("Descripción error", HttpStatus.BAD_REQUEST);
-            objetoJson.put("Mensaje", "Ocurrio un problema");
+            objetoJson.put("Codigo: ", HttpStatus.BAD_REQUEST.value());
+            objetoJson.put("Descripción: ", HttpStatus.BAD_REQUEST);
+            objetoJson.put("Mensaje", "No se puede agregar opinion ERROR: " + e.getMessage());
             String jsonString = objetoJson.toString();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }
@@ -47,11 +47,10 @@ public class OpinionController {
             return ResponseEntity.status(HttpStatus.OK).body(
                     opinionService.getPromedioOpinion());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             JSONObject objetoJson = new JSONObject();
-            objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
-            objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
-            objetoJson.put("Mensaje", "No existen registros en la BD");
+            objetoJson.put("Codigo: ", HttpStatus.NOT_FOUND.value());
+            objetoJson.put("Descripción: ", HttpStatus.NOT_FOUND);
+            objetoJson.put("Mensaje", "No se encontraron registros ERROR: " + e.getMessage());
             String jsonString = objetoJson.toString();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }

@@ -2,7 +2,6 @@ package co.edu.uniquindio.PF_ANALISIS.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity

@@ -2,7 +2,6 @@ package co.edu.uniquindio.PF_ANALISIS.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 
 @Entity
@@ -19,7 +18,7 @@ public class Opinion {
     @Column (name = "id_item")
     private int idItem;
 
-    @Column (name = "idEstudiante")
+    @Column (name = "id_Estudiante")
     private int idEstudiante;
 
     @Column (name = "valoracion", nullable = false)

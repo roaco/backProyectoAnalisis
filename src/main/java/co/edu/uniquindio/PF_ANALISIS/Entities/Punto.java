@@ -2,12 +2,11 @@ package co.edu.uniquindio.PF_ANALISIS.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Punto")
+@Table (name = "Punto")
 @Getter
 @Setter
 public class Punto {

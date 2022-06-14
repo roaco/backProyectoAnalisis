@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-
 @Repository
 public interface RespuestaRepo extends JpaRepository<Respuesta, Integer> {
+
     @Query(value = "select p.enunciado, " +
             "(select count(*)  " +
             "from respuesta rr " +
@@ -28,5 +28,4 @@ public interface RespuestaRepo extends JpaRepository<Respuesta, Integer> {
             "group by p.enunciado " +
             "order by 1", nativeQuery = true)
     List<Object[]> getPromedioPreguntas();
-
 }

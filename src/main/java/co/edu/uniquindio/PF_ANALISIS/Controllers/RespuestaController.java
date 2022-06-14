@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*")
 @RequestMapping("respuesta")
 public class RespuestaController {
 
@@ -20,7 +20,7 @@ public class RespuestaController {
     public ResponseEntity<?> createEstudiante(@RequestBody Respuesta respuesta){
         try {
             if(respuestaService.createRespuesta(respuesta)) {
-                return ResponseEntity.status(HttpStatus.CREATED).body(null);
+                return ResponseEntity.status(HttpStatus.CREATED).body("Status: 200 OK");
             }
             else {
                 JSONObject objetoJson = new JSONObject();
@@ -34,7 +34,7 @@ public class RespuestaController {
             JSONObject objetoJson = new JSONObject();
             objetoJson.put("Codigo error", HttpStatus.BAD_REQUEST.value());
             objetoJson.put("Descripción error", HttpStatus.BAD_REQUEST);
-            objetoJson.put("Mensaje", "Ocurrio un problema");
+            objetoJson.put("Mensaje", "Ocurrio un problema ERROR: " + e.getMessage());
             String jsonString = objetoJson.toString();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }
@@ -50,7 +50,7 @@ public class RespuestaController {
             JSONObject objetoJson = new JSONObject();
             objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
             objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
-            objetoJson.put("Mensaje", "No existen registros en la BD");
+            objetoJson.put("Mensaje", "No se encontraron registros ERROR: " + e.getMessage());
             String jsonString = objetoJson.toString();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }
@@ -66,7 +66,7 @@ public class RespuestaController {
             JSONObject objetoJson = new JSONObject();
             objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
             objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
-            objetoJson.put("Mensaje", "No existen registros en la BD");
+            objetoJson.put("Mensaje", "No se encontraron registros ERROR: " + e.getMessage());
             String jsonString = objetoJson.toString();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }

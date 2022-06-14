@@ -8,8 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-@RequestMapping("puntoDto")
+@CrossOrigin(origins = "*")
+@RequestMapping("punto")
 public class PuntoController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class PuntoController {
             JSONObject objetoJson = new JSONObject();
             objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
             objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
-            objetoJson.put("Mensaje", "No existen registros en la BD");
+            objetoJson.put("Mensaje", "No se encontraron registros ERROR: " + e.getMessage());
             String jsonString = objetoJson.toString();
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(jsonString);
         }

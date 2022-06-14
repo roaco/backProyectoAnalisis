@@ -15,10 +15,10 @@ public class OpinionService {
     private OpinionRepo opinionRepo;
 
     @Transactional
-    public boolean createOpinion(Opinion opinion) {
+    public boolean createOpinion(Opinion opinionTest) {
 
         try {
-            opinionRepo.save(opinion);
+            opinionRepo.save(opinionTest);
             return true;
         } catch (Exception e) {
             return false;

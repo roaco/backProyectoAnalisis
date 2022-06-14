@@ -1,4 +1,5 @@
 package co.edu.uniquindio.PF_ANALISIS.Repositories;
+
 import co.edu.uniquindio.PF_ANALISIS.Entities.Pregunta;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -8,7 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 @EnableJpaRepositories
 public interface PuntoRepo extends JpaRepository<Pregunta, Integer> {
-
     @Query(value = "select pu.x x_inicial, pu.y y_inicial, "+
             "pu2.x x_final, pu2.y y_final "+
             "from punto pu, pregunta pr, punto pu2 "+
