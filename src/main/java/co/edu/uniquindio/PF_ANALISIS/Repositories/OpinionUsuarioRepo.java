@@ -13,4 +13,10 @@ public interface OpinionUsuarioRepo extends JpaRepository<OpinionUsuario, Intege
     @Query(value = "select i.enunciado, avg(valoracion) Promedio_Global from opinion o join item i on i.id_item = o.id_item group by i.enunciado order by 1 ", nativeQuery = true)
     List<Object[]> getPromedioOpinion();
 
+    @Query(value = "select avg(valoracion) promedio from opinion where id_item = ?", nativeQuery = true)
+    Double getPromedioValoracionOpinion(Integer idPreguntaTest);
+
+    @Query(value = "select valoracion from opinion where id_item = ?", nativeQuery = true)
+    List<Double> getValoracionesOpinion(Integer idPreguntaTest);
+
 }

@@ -23,7 +23,7 @@ public class RespuestaService {
 
     @Transactional
     public List<Object[]> getPreguntasTYF(){
-        return respuestaRepo.getPreguntasTYF();
+        return respuestaRepo.getPreguntasBYM();
     }
 
     @Transactional

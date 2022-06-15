@@ -41,7 +41,7 @@ public class RespuestaController {
     }
 
     @GetMapping("/listar")
-    public ResponseEntity<?> getPreguntasTyF() {
+    public ResponseEntity<?> getPreguntasBYM() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(
                     respuestaService.getPreguntasTYF());
