@@ -17,8 +17,8 @@ public class Pregunta {
     @Column (name = "enunciado", nullable = false, length = 25)
     private String enunciado;
     @ManyToOne
-    private Punto puntoInicial;
+    private Eje puntoInicial;
 
     @ManyToOne
-    private Punto puntoFinal;
+    private Eje puntoFinal;
 }

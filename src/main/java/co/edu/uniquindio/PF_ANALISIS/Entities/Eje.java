@@ -6,10 +6,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table (name = "Punto")
+@Table (name = "punto")
 @Getter
 @Setter
-public class Punto {
+public class Eje {
     @Id
     @Column(name = "id_Punto")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

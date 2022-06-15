@@ -1,6 +1,6 @@
 package co.edu.uniquindio.PF_ANALISIS.Controllers;
 
-import co.edu.uniquindio.PF_ANALISIS.Services.PuntoService;
+import co.edu.uniquindio.PF_ANALISIS.Services.EjeService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("punto")
-public class PuntoController {
+@RequestMapping("eje")
+public class EjeController {
 
     @Autowired
-    private PuntoService puntoService;
+    private EjeService ejeService;
 
-    @GetMapping("/obtenerPuntos/{idPregunta}")
+    @GetMapping("/obtenerEjes/{idPregunta}")
     public ResponseEntity<?> getUserSearch(@PathVariable Integer idPregunta) {
         try {
 
             return ResponseEntity.status(HttpStatus.OK).body(
-                    puntoService.findPuntoIdPregunta(idPregunta));
+                    ejeService.findPuntoIdPregunta(idPregunta));
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             JSONObject objetoJson = new JSONObject();
             objetoJson.put("Codigo error", HttpStatus.NOT_FOUND.value());
             objetoJson.put("Descripción error", HttpStatus.NOT_FOUND);
